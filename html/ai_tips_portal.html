@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mastery Hub - Consejos y Trucos de IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .premium-btn {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .premium-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 3rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8efff 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .tip-card h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-card p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .premium-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .premium-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter {
+            background: #f8f9fa;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 2rem auto 0;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #5a67d8;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">AI Mastery Hub</div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#tips">Consejos</a></li>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="premium-btn" onclick="openModal('premiumModal')">Premium</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Domina la IA como un Experto</h1>
+            <p>Descubre consejos únicos, trucos avanzados y estrategias que solo los profesionales conocen</p>
+            <a href="#tips" class="cta-button">Explorar Consejos Gratuitos</a>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section class="section" id="tips">
+            <div class="container">
+                <h2>Consejos Exclusivos de IA</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>🧠 Prompt Engineering Avanzado</h3>
+                        <p>Usa la técnica de "Chain of Thought" añadiendo "Piensa paso a paso:" al inicio de tus prompts complejos. Esto mejora la precisión de respuestas hasta un 40% en problemas de razonamiento.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3>⚡ Optimización de Tokens</h3>
+                        <p>Reemplaza palabras largas con sinónimos cortos en tus prompts. Por ejemplo, "información" → "info", "anteriormente" → "antes". Esto reduce costos y mejora la velocidad.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3>🎯 Contexto Dinámico</h3>
+                        <p>Usa variables como {INDUSTRIA}, {AUDIENCIA}, {TONO} en tus prompts plantilla. Esto te permite reutilizar prompts efectivos adaptándolos a diferentes contextos.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3>🔄 Técnica de Refinamiento</h3>
+                        <p>Después de recibir una respuesta, usa "Mejora esto considerando [aspecto específico]" en lugar de regenerar. Obtienes resultados más precisos y mantienes el contexto.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3>📊 Análisis Multi-dimensional</h3>
+                        <p>Para análisis complejos, pide: "Analiza desde 3 perspectivas: técnica, comercial y usuario". Esto genera insights más completos y balanceados.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3>🎨 Creatividad Controlada</h3>
+                        <p>Combina estructura con creatividad: "Genera 5 ideas creativas siguiendo el formato: [Título] - [Descripción] - [Impacto esperado]". Obtienes originalidad organizada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section premium-section">
+            <div class="container">
+                <h2>Contenido Premium</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Accede a estrategias avanzadas, plantillas exclusivas y casos de uso profesionales</p>
+                
+                <div class="premium-features">
+                    <div class="feature-card">
+                        <h3>🚀 Prompts Profesionales</h3>
+                        <p>Biblioteca de 500+ prompts probados en industrias reales. Incluye plantillas para marketing, desarrollo, análisis financiero y más.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🎓 Masterclasses Exclusivas</h3>
+                        <p>Videos detallados con casos reales de implementación de IA en empresas Fortune 500. Aprende estrategias que funcionan.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🤝 Comunidad VIP</h3>
+                        <p>Acceso exclusivo a nuestro Discord premium donde compartimos tips diarios, resolvemos dudas y colaboramos en proyectos.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🔧 Herramientas Custom</h3>
+                        <p>Scripts y herramientas desarrolladas internamente para automatizar workflows de IA. Ahorra horas de trabajo manual.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 3rem;">
+                    <a href="#" class="cta-button" onclick="openModal('premiumModal')">Obtener Acceso Premium - $29/mes</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section newsletter">
+            <div class="container">
+                <h2>Newsletter Semanal</h2>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 1rem;">Recibe los últimos trucos de IA directamente en tu email</p>
+                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input type="email" placeholder="tu@email.com" required>
+                    <button type="submit">Suscribirse Gratis</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Premium -->
+    <div id="premiumModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('premiumModal')">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 1rem;">Acceso Premium</h2>
+            <p><strong>¿Qué incluye?</strong></p>
+            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                <li>500+ plantillas de prompts profesionales</li>
+                <li>Nuevos consejos exclusivos semanalmente</li>
+                <li>Acceso a webinars en vivo</li>
+                <li>Comunidad privada en Discord</li>
+                <li>Soporte directo por email</li>
+                <li>Casos de estudio detallados</li>
+            </ul>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>$29/mes o $290/año (ahorra $58)</strong></p>
+                <button onclick="processPurchase()" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; border: none; padding: 1rem 2rem; border-radius: 50px; font-size: 1.1rem; cursor: pointer;">Comenzar Ahora</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AI Mastery Hub. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Transformando profesionales con el poder de la Inteligencia Artificial</p>
+        </div>
+    </footer>
+
+    <script>
+        // Analytics simulation
+        let pageViews = 0;
+        let subscribers = 1247;
+        
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            trackEvent('Modal Opened', modalId);
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Simulate subscription
+            subscribers++;
+            alert('¡Gracias por suscribirte! Recibirás nuestro primer email con consejos exclusivos en 24 horas.');
+            event.target.reset();
+            trackEvent('Newsletter Subscription', email);
+        }
+        
+        function processPurchase() {
+            // Integrate with payment processor
+            alert('Redirigiendo a la página de pago segura...\n\nEn una implementación real, aquí integrarías con Stripe, PayPal, o tu procesador de pagos preferido.');
+            trackEvent('Premium Purchase Intent');
+        }
+        
+        function trackEvent(action, label = '') {
+            // Analytics tracking con Google Analytics
+            console.log(`Event: ${action}${label ? ' - ' + label : ''}`);
+            
+            // Google Analytics 4 tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    'event_category': 'User Interaction',
+                    'event_label': label,
+                    'value': 1
+                });
+            }
+            
+            // AdSense revenue tracking
+            if (action === 'Ad Click' && typeof gtag !== 'undefined') {
+                gtag('event', 'ad_click', {
+                    'event_category': 'Advertising',
+                    'event_label': label
+                });
+            }
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Close modal when clicking outside - No longer needed
+        // window.addEventListener('click', function(event) {
+        //     const modals = document.querySelectorAll('.modal');
+        //     modals.forEach(modal => {
+        //         if (event.target === modal) {
+        //             modal.style.display = 'none';
+        //         }
+        //     });
+        // });
+        
+        // Page view tracking
+        window.addEventListener('load', function() {
+            pageViews++;
+            trackEvent('Page View');
+        });
+        
+        // Add floating action for mobile - Updated for automation theme
+        if (window.innerWidth <= 768) {
+            const floatingBtn = document.createElement('div');
+            floatingBtn.innerHTML = '🤖';
+            floatingBtn.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                z-index: 999;
+            `;
+            floatingBtn.onclick = () => {
+                document.querySelector('#newsletter').scrollIntoView({ behavior: 'smooth' });
+                trackEvent('Mobile CTA Click');
+            };
+            document.body.appendChild(floatingBtn);
+        }
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                z-index: 999;
+            `;
+            floatingBtn.onclick = () => openModal('premiumModal');
+            document.body.appendChild(floatingBtn);
+        }
+    </script>
+</body>
+</html>
